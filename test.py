@@ -10,6 +10,7 @@ from rotate_image import Solution as RotateImageSolution
 from search_a_2d_matrix import Solution as SearchA2DMatrixSolution
 from text_justification import Solution as TextJustificationSolution
 from three_sum import Solution as ThreeSumSolution
+from trapping_rain_water import Solution as TrappingRainWaterSolution
 from utils.list_node import ListNode
 
 class TestAddTwoNumbersSolution(unittest.TestCase):
@@ -228,6 +229,23 @@ class TestThreeSumSolution(unittest.TestCase):
     def test_3(self):
         l = self.s.threeSum([ 1, -1 ])
         self.assertEqual(len(l), 0)
+
+class TestTrappingRainWaterSolution(unittest.TestCase):
+    def __init__(self, *args, **kwargs):
+        super(TestTrappingRainWaterSolution, self).__init__(*args, **kwargs)
+        self.s = TrappingRainWaterSolution()
+    
+    def test_1(self):
+        self.assertEqual(self.s.trap([ 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 ]), 6)
+    
+    def test_2(self):
+        self.assertEqual(self.s.trap([ 4, 2, 0, 3, 2, 5 ]), 9)
+    
+    def test_3(self):
+        self.assertEqual(self.s.trap([ 3, 0, 1, 0, 4, 0, 2 ]), 10)
+    
+    def test_4(self):
+        self.assertEqual(self.s.trap([ 2, 1, 5, 3, 1, 0, 4 ]), 9)
 
 if __name__ == "__main__":
     unittest.main()
