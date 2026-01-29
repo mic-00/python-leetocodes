@@ -9,6 +9,7 @@ from roman_to_integer import Solution as RomanToIntegerSolution
 from rotate_image import Solution as RotateImageSolution
 from search_a_2d_matrix import Solution as SearchA2DMatrixSolution
 from text_justification import Solution as TextJustificationSolution
+from three_sum import Solution as ThreeSumSolution
 from utils.list_node import ListNode
 
 class TestAddTwoNumbersSolution(unittest.TestCase):
@@ -207,6 +208,26 @@ class TestTextJustificationSolution(unittest.TestCase):
             "everything  else  we",
             "do                  "
             ])
+
+class TestThreeSumSolution(unittest.TestCase):
+    def __init__(self, *args, **kwargs):
+        super(TestThreeSumSolution, self).__init__(*args, **kwargs)
+        self.s = ThreeSumSolution()
+    
+    def test_1(self):
+        l = self.s.threeSum([ -1, 0, 1, 2, -1, -4 ])
+        self.assertEqual(len(l), 2)
+        self.assertIn([ -1, -1, 2 ], l)
+        self.assertIn([ -1, 0, 1 ], l)
+    
+    def test_2(self):
+        l = self.s.threeSum([ 0, 0, 0 ])
+        self.assertEqual(len(l), 1)
+        self.assertIn([ 0, 0, 0 ], l)
+    
+    def test_3(self):
+        l = self.s.threeSum([ 1, -1 ])
+        self.assertEqual(len(l), 0)
 
 if __name__ == "__main__":
     unittest.main()
