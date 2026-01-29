@@ -8,6 +8,7 @@ from merge_k_sorted_lists import Solution as MergeKSortedListsSolution
 from roman_to_integer import Solution as RomanToIntegerSolution
 from rotate_image import Solution as RotateImageSolution
 from search_a_2d_matrix import Solution as SearchA2DMatrixSolution
+from text_justification import Solution as TextJustificationSolution
 from utils.list_node import ListNode
 
 class TestAddTwoNumbersSolution(unittest.TestCase):
@@ -140,6 +141,72 @@ class TestSearchA2DMatrixSolution(unittest.TestCase):
             [ 10, 11, 16, 20 ],
             [ 23, 30, 34, 60 ]
             ], 13))
+
+class TestTextJustificationSolution(unittest.TestCase):
+    def __init__(self, *args, **kwargs):
+        super(TestTextJustificationSolution, self).__init__(*args, **kwargs)
+        self.s = TextJustificationSolution()
+    
+    def test_1(self):
+        fullJustify = self.s.fullJustify([
+            "This",
+            "is",
+            "an",
+            "example",
+            "of",
+            "text",
+            "justification."
+            ], 16)
+        self.assertEqual(fullJustify, [
+            "This    is    an",
+            "example  of text",
+            "justification.  "
+            ])
+    
+    def test_2(self):
+        fullJustify = self.s.fullJustify([
+            "What",
+            "must",
+            "be",
+            "acknowledgment",
+            "shall",
+            "be"
+            ], 16)
+        self.assertEqual(fullJustify, [
+            "What   must   be",
+            "acknowledgment  ",
+            "shall be        "
+            ])
+    
+    def test_3(self):
+        fullJustify = self.s.fullJustify([
+            "Science",
+            "is",
+            "what",
+            "we",
+            "understand",
+            "well",
+            "enough",
+            "to",
+            "explain",
+            "to",
+            "a",
+            "computer.",
+            "Art",
+            "is",
+            "everything",
+            "else",
+            "we",
+            "do"
+            ], 20)
+        self.assertEqual(fullJustify, [
+            "Science  is  what we",
+            "understand      well",
+            "enough to explain to",
+            "a  computer.  Art is",
+            "everything  else  we",
+            "do                  "
+            ])
 
 if __name__ == "__main__":
     unittest.main()
