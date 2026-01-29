@@ -3,6 +3,7 @@ import unittest
 from add_two_numbers import Solution as AddTwoNumbersSolution
 from integer_to_roman import Solution as IntegerToRomanSolution
 from jump_game_2 import Solution as JumpGame2Solution
+from longest_palindromic_substring import Solution as LongestPalindromicSubstringSolution
 from utils.list_node import ListNode
 
 class TestAddTwoNumbersSolution(unittest.TestCase):
@@ -55,6 +56,17 @@ class TestJumpGame2Solution(unittest.TestCase):
     
     def test_4(self):
         self.assertEqual(self.s.jump([ 1 ]), 0)
+
+class TestLongestPalindromicSubstringSolution(unittest.TestCase):
+    def __init__(self, *args, **kwargs):
+        super(TestLongestPalindromicSubstringSolution, self).__init__(*args, **kwargs)
+        self.s = LongestPalindromicSubstringSolution()
+    
+    def test_1(self):
+        self.assertEqual(self.s.longestPalindrome("babad"), "bab")
+    
+    def test_2(self):
+        self.assertEqual(self.s.longestPalindrome("cbbd"), "bb")
 
 if __name__ == "__main__":
     unittest.main()
