@@ -1,6 +1,8 @@
+import math
 import unittest
 from add_two_numbers import Solution as AddTwoNumbersSolution
 from integer_to_roman import Solution as IntegerToRomanSolution
+from jump_game_2 import Solution as JumpGame2Solution
 from utils.list_node import ListNode
 
 class TestAddTwoNumbersSolution(unittest.TestCase):
@@ -36,6 +38,23 @@ class TestIntegerToRomanSolution(unittest.TestCase):
     
     def test_3(self):
         self.assertEqual(self.s.intToRoman(1994), "MCMXCIV")
+
+class TestJumpGame2Solution(unittest.TestCase):
+    def __init__(self, *args, **kwargs):
+        super(TestJumpGame2Solution, self).__init__(*args, **kwargs)
+        self.s = JumpGame2Solution()
+    
+    def test_1(self):
+        self.assertEqual(self.s.jump([ 2, 3, 1, 1, 4 ]), 2)
+    
+    def test_2(self):
+        self.assertEqual(self.s.jump([ 2, 3, 1, 5, 1, 1, 1 ]), 3)
+    
+    def test_3(self):
+        self.assertEqual(self.s.jump([ 0, 1 ]), math.inf)
+    
+    def test_4(self):
+        self.assertEqual(self.s.jump([ 1 ]), 0)
 
 if __name__ == "__main__":
     unittest.main()
