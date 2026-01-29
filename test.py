@@ -7,6 +7,7 @@ from longest_palindromic_substring import Solution as LongestPalindromicSubstrin
 from merge_k_sorted_lists import Solution as MergeKSortedListsSolution
 from roman_to_integer import Solution as RomanToIntegerSolution
 from rotate_image import Solution as RotateImageSolution
+from search_a_2d_matrix import Solution as SearchA2DMatrixSolution
 from utils.list_node import ListNode
 
 class TestAddTwoNumbersSolution(unittest.TestCase):
@@ -120,6 +121,25 @@ class TestRotateImageSolution(unittest.TestCase):
         matrix = [ [5, 1, 9, 11 ], [ 2, 4, 8, 10 ], [ 13, 3, 6, 7 ], [ 15, 14, 12, 16 ] ]
         self.s.rotate(matrix)
         self.assertEqual(matrix, [ [ 15, 13, 2, 5 ], [ 14, 3, 4, 1 ], [ 12, 6, 8, 9 ], [ 16, 7, 10, 11 ] ])
+
+class TestSearchA2DMatrixSolution(unittest.TestCase):
+    def __init__(self, *args, **kwargs):
+        super(TestSearchA2DMatrixSolution, self).__init__(*args, **kwargs)
+        self.s = SearchA2DMatrixSolution()
+    
+    def test_1(self):
+        self.assertTrue(self.s.searchMatrix([
+            [ 1, 3, 5, 7 ],
+            [ 10, 11, 16, 20 ],
+            [ 23, 30, 34, 60 ]
+            ], 3))
+    
+    def test_2(self):
+        self.assertFalse(self.s.searchMatrix([
+            [ 1, 3, 5, 7 ],
+            [ 10, 11, 16, 20 ],
+            [ 23, 30, 34, 60 ]
+            ], 13))
 
 if __name__ == "__main__":
     unittest.main()
