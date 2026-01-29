@@ -5,6 +5,7 @@ from integer_to_roman import Solution as IntegerToRomanSolution
 from jump_game_2 import Solution as JumpGame2Solution
 from longest_palindromic_substring import Solution as LongestPalindromicSubstringSolution
 from merge_k_sorted_lists import Solution as MergeKSortedListsSolution
+from roman_to_integer import Solution as RomanToIntegerSolution
 from utils.list_node import ListNode
 
 class TestAddTwoNumbersSolution(unittest.TestCase):
@@ -89,6 +90,20 @@ class TestMergeKSortedListsSolution(unittest.TestCase):
     def test_3(self):
         m = self.s.mergeKLists([ None ])
         self.assertIsNone(m)
+
+class TestRomanToIntegerSolution(unittest.TestCase):
+    def __init__(self, *args, **kwargs):
+        super(TestRomanToIntegerSolution, self).__init__(*args, **kwargs)
+        self.s = RomanToIntegerSolution()
+    
+    def test_1(self):
+        self.assertEqual(self.s.romanToInt("III"), 3)
+    
+    def test_2(self):
+        self.assertEqual(self.s.romanToInt("LVIII"), 58)
+    
+    def test_3(self):
+        self.assertEqual(self.s.romanToInt("MCMXCIV"), 1994)
 
 if __name__ == "__main__":
     unittest.main()
