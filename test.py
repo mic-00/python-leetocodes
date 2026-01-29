@@ -4,6 +4,7 @@ from add_two_numbers import Solution as AddTwoNumbersSolution
 from integer_to_roman import Solution as IntegerToRomanSolution
 from jump_game_2 import Solution as JumpGame2Solution
 from longest_palindromic_substring import Solution as LongestPalindromicSubstringSolution
+from merge_k_sorted_lists import Solution as MergeKSortedListsSolution
 from utils.list_node import ListNode
 
 class TestAddTwoNumbersSolution(unittest.TestCase):
@@ -67,6 +68,27 @@ class TestLongestPalindromicSubstringSolution(unittest.TestCase):
     
     def test_2(self):
         self.assertEqual(self.s.longestPalindrome("cbbd"), "bb")
+
+class TestMergeKSortedListsSolution(unittest.TestCase):
+    def __init__(self, *args, **kwargs):
+        super(TestMergeKSortedListsSolution, self).__init__(*args, **kwargs)
+        self.s = MergeKSortedListsSolution()
+    
+    def test_1(self):
+        m = self.s.mergeKLists([
+            ListNode.fromValues(1, 4, 5),
+            ListNode.fromValues(1, 3, 4),
+            ListNode.fromValues(2, 6)
+            ])
+        self.assertEqual(m.getStringRepresentation(), "1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5 -> 6")
+    
+    def test_2(self):
+        m = self.s.mergeKLists([])
+        self.assertIsNone(m)
+    
+    def test_3(self):
+        m = self.s.mergeKLists([ None ])
+        self.assertIsNone(m)
 
 if __name__ == "__main__":
     unittest.main()
