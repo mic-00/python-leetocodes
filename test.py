@@ -6,6 +6,7 @@ from jump_game_2 import Solution as JumpGame2Solution
 from longest_palindromic_substring import Solution as LongestPalindromicSubstringSolution
 from merge_k_sorted_lists import Solution as MergeKSortedListsSolution
 from roman_to_integer import Solution as RomanToIntegerSolution
+from rotate_image import Solution as RotateImageSolution
 from utils.list_node import ListNode
 
 class TestAddTwoNumbersSolution(unittest.TestCase):
@@ -104,6 +105,21 @@ class TestRomanToIntegerSolution(unittest.TestCase):
     
     def test_3(self):
         self.assertEqual(self.s.romanToInt("MCMXCIV"), 1994)
+
+class TestRotateImageSolution(unittest.TestCase):
+    def __init__(self, *args, **kwargs):
+        super(TestRotateImageSolution, self).__init__(*args, **kwargs)
+        self.s = RotateImageSolution()
+    
+    def test_1(self):
+        matrix = [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]
+        self.s.rotate(matrix)
+        self.assertEqual(matrix, [ [ 7, 4, 1 ], [ 8, 5, 2 ], [ 9, 6, 3 ] ])
+    
+    def test_2(self):
+        matrix = [ [5, 1, 9, 11 ], [ 2, 4, 8, 10 ], [ 13, 3, 6, 7 ], [ 15, 14, 12, 16 ] ]
+        self.s.rotate(matrix)
+        self.assertEqual(matrix, [ [ 15, 13, 2, 5 ], [ 14, 3, 4, 1 ], [ 12, 6, 8, 9 ], [ 16, 7, 10, 11 ] ])
 
 if __name__ == "__main__":
     unittest.main()
