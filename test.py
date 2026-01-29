@@ -11,6 +11,7 @@ from search_a_2d_matrix import Solution as SearchA2DMatrixSolution
 from text_justification import Solution as TextJustificationSolution
 from three_sum import Solution as ThreeSumSolution
 from trapping_rain_water import Solution as TrappingRainWaterSolution
+from valid_sudoku import Solution as ValidSudokuSolution
 from utils.list_node import ListNode
 
 class TestAddTwoNumbersSolution(unittest.TestCase):
@@ -246,6 +247,37 @@ class TestTrappingRainWaterSolution(unittest.TestCase):
     
     def test_4(self):
         self.assertEqual(self.s.trap([ 2, 1, 5, 3, 1, 0, 4 ]), 9)
+
+class TestValidSudokuSolution(unittest.TestCase):
+    def __init__(self, *args, **kwargs):
+        super(TestValidSudokuSolution, self).__init__(*args, **kwargs)
+        self.s = ValidSudokuSolution()
+    
+    def test_1(self):
+        board = [
+            [ "5", "3", ".", ".", "7", ".", ".", ".", "." ],
+            [ "6", ".", ".", "1", "9", "5", ".", ".", "." ],
+            [ ".", "9", "8", ".", ".", ".", ".", "6", "." ],
+            [ "8", ".", ".", ".", "6", ".", ".", ".", "3" ],
+            [ "4", ".", ".", "8", ".", "3", ".", ".", "1" ],
+            [ "7", ".", ".", ".", "2", ".", ".", ".", "6" ],
+            [ ".", "6", ".", ".", ".", ".", "2", "8", "." ],
+            [ ".", ".", ".", "4", "1", "9", ".", ".", "5" ],
+            [ ".", ".", ".", ".", "8", ".", ".", "7", "9" ] ]
+        self.assertTrue(self.s.isValidSudoku(board))
+    
+    def test_2(self):
+        board = [
+            [ "8", "3", ".", ".", "7", ".", ".", ".", "." ],
+            [ "6", ".", ".", "1", "9", "5", ".", ".", "." ],
+            [ ".", "9", "8", ".", ".", ".", ".", "6", "." ],
+            [ "8", ".", ".", ".", "6", ".", ".", ".", "3" ],
+            [ "4", ".", ".", "8", ".", "3", ".", ".", "1" ],
+            [ "7", ".", ".", ".", "2", ".", ".", ".", "6" ],
+            [ ".", "6", ".", ".", ".", ".", "2", "8", "." ],
+            [ ".", ".", ".", "4", "1", "9", ".", ".", "5" ],
+            [ ".", ".", ".", ".", "8", ".", ".", "7", "9" ] ]
+        self.assertFalse(self.s.isValidSudoku(board))
 
 if __name__ == "__main__":
     unittest.main()
