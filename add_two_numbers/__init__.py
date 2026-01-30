@@ -12,9 +12,9 @@ class Solution(object):
             l1 = ListNode(0)
         if l2 == None:
             l2 = ListNode(0)
-        return self._createListNode(self._getNumber(l1) + self._getNumber(l2))
+        return self.__createListNode(self.__getNumber(l1) + self.__getNumber(l2))
     
-    def _getNumber(self, l: ListNode) -> int:
+    def __getNumber(self, l: ListNode) -> int:
         def getNumberRecursive(l, i):
             n = l.val * 10 ** i
             if not l.next:
@@ -22,7 +22,7 @@ class Solution(object):
             return n + getNumberRecursive(l.next, i + 1)
         return getNumberRecursive(l, 0)
     
-    def _createListNode(self, n: int) -> ListNode:
+    def __createListNode(self, n: int) -> ListNode:
         def createListNodeRecursive(n, i, next = None):
             v = n // 10 ** i
             l = ListNode(v, next)
