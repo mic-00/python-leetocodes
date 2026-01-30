@@ -2,9 +2,9 @@ class Solution(object):
     def romanToInt(self, s: str) -> int:
         i, n = 0, 0
         while i < len(s):
-            v1 = self._getValue(s[i])
+            v1 = self.__getValue(s[i])
             if i + 1 < len(s):
-                v2 = self._getValue(s[i+1])
+                v2 = self.__getValue(s[i+1])
             else:
                 v2 = v1
             if v1 < v2:
@@ -15,7 +15,7 @@ class Solution(object):
             i += 1
         return n
     
-    def _getValue(self, c: str) -> int:
+    def __getValue(self, c: str) -> int:
         if c == "I":
             return 1
         elif c == "V":
